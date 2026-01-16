@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import BottomNav from '../components/BottomNav.tsx';
 import ResidentHome from './resident/ResidentHome.tsx';
