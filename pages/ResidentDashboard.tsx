@@ -17,6 +17,8 @@ import ResidentDocuments from './resident/ResidentDocuments';
 import ResidentEmergency from './resident/ResidentEmergency';
 import ResidentSubscriptions from './resident/ResidentSubscriptions';
 import ResidentGallery from './resident/ResidentGallery';
+import ResidentFeed from './resident/ResidentFeed';
+import ResidentPets from './resident/ResidentPets';
 
 const ResidentDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
   const [viewStack, setViewStack] = useState<string[]>(['home']);
@@ -51,13 +53,15 @@ const ResidentDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout }) => 
       case 'emergency': return <ResidentEmergency onBack={popView} />;
       case 'subscriptions': return <ResidentSubscriptions onBack={popView} />;
       case 'gallery': return <ResidentGallery onBack={popView} />;
+      case 'feed': return <ResidentFeed onBack={popView} />;
+      case 'pets': return <ResidentPets onBack={popView} />;
       default: return <ResidentHome setView={pushView} />;
     }
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 overflow-hidden">
-      <main className="flex-1 pb-24 relative">
+      <main className="flex-1 pb-24 relative overflow-y-auto">
         {renderView()}
       </main>
       <BottomNav activeTab={viewStack[0]} setActiveTab={setBaseTab} />

@@ -7,6 +7,11 @@ import AdminNotices from './admin/AdminNotices';
 import AdminStaff from './admin/AdminStaff';
 import AdminComplaints from './admin/AdminComplaints';
 import AdminFacilities from './admin/AdminFacilities';
+import AdminAnalytics from './admin/AdminAnalytics';
+import AdminInventory from './admin/AdminInventory';
+import AdminCommittee from './admin/AdminCommittee';
+import AdminVendors from './admin/AdminVendors';
+import AdminParking from './admin/AdminParking';
 
 interface AdminDashboardProps {
   onLogout: () => void;
@@ -14,11 +19,22 @@ interface AdminDashboardProps {
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState('home');
+  const [viewStack, setViewStack] = useState<string[]>(['home']);
+  const activeView = viewStack[viewStack.length - 1];
+
+  const pushView = (view: string) => setViewStack([...viewStack, view]);
+  const popView = () => {
+    if (viewStack.length > 1) {
+      const newStack = [...viewStack];
+      newStack.pop();
+      setViewStack(newStack);
+    }
+  };
 
   const renderView = () => {
-    switch (activeTab) {
+    switch (activeView) {
       case 'home':
-        return <AdminHome setView={setActiveTab} onLogout={onLogout} />;
+        return <AdminHome setView={pushView} onLogout={onLogout} />;
       case 'members':
         return <AdminMembers />;
       case 'finance':
@@ -26,19 +42,34 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
       case 'notices':
         return <AdminNotices />;
       case 'staff':
-        return <AdminStaff onBack={() => setActiveTab('home')} />;
+        return <AdminStaff onBack={popView} />;
       case 'complaints':
-        return <AdminComplaints onBack={() => setActiveTab('home')} />;
+        return <AdminComplaints onBack={popView} />;
       case 'facilities':
-        return <AdminFacilities onBack={() => setActiveTab('home')} />;
+        return <AdminFacilities onBack={popView} />;
+      case 'analytics':
+        return <AdminAnalytics onBack={popView} />;
+      case 'inventory':
+        return <AdminInventory onBack={popView} />;
+      case 'committee':
+        return <AdminCommittee onBack={popView} />;
+      case 'vendors':
+        return <AdminVendors onBack={popView} />;
+      case 'parking':
+        return <AdminParking onBack={popView} />;
       default:
-        return <AdminHome setView={setActiveTab} onLogout={onLogout} />;
+        return <AdminHome setView={pushView} onLogout={onLogout} />;
     }
   };
 
+  const setBaseTab = (view: string) => {
+    setActiveTab(view);
+    setViewStack([view]);
+  };
+
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
-      <main className="flex-1 pb-24">
+    <div className="flex flex-col min-h-screen bg-gray-50 overflow-hidden">
+      <main className="flex-1 pb-24 relative overflow-y-auto">
         {renderView()}
       </main>
 
@@ -52,7 +83,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
           ].map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => setBaseTab(tab.id)}
               className={`flex flex-col items-center justify-center gap-1 w-16 transition-all duration-300 ${
                 activeTab === tab.id ? 'text-purple-600 scale-110' : 'text-slate-400'
               }`}
