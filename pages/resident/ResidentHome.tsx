@@ -21,6 +21,9 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
             </div>
           </div>
           <div className="flex gap-2">
+            <button className="size-10 flex items-center justify-center bg-error rounded-xl shadow-lg shadow-error/20 active:scale-90 transition-all">
+              <span className="material-symbols-outlined text-white">emergency</span>
+            </button>
             <button className="size-10 flex items-center justify-center bg-white/10 rounded-xl backdrop-blur-md relative border border-white/10 active:scale-90 transition-all">
               <span className="material-symbols-outlined text-2xl">notifications</span>
               <span className="absolute top-2 right-2 size-2.5 bg-error rounded-full ring-2 ring-[#1f3a60]"></span>
@@ -108,7 +111,7 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
            <div className="relative z-10">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-black">Latest Notices</h2>
-                <button className="text-[10px] font-black text-accent uppercase tracking-widest">View Archives</button>
+                <button className="text-[10px] font-black text-accent uppercase tracking-widest">Archives</button>
               </div>
               <div className="space-y-4">
                  <div className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
@@ -116,8 +119,8 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
                       <span className="material-symbols-outlined">water_drop</span>
                     </div>
                     <div>
-                      <p className="text-sm font-bold mb-0.5">Water Tank Maintenance</p>
-                      <p className="text-[11px] text-white/50 leading-relaxed">Supply will be affected from 10 AM to 3 PM tomorrow.</p>
+                      <p className="text-sm font-bold mb-0.5">Water Maintenance</p>
+                      <p className="text-[11px] text-white/50 leading-relaxed">Affected from 10 AM to 3 PM tomorrow.</p>
                     </div>
                  </div>
                  <div className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
@@ -125,8 +128,8 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
                       <span className="material-symbols-outlined">festival</span>
                     </div>
                     <div>
-                      <p className="text-sm font-bold mb-0.5">Diwali Night Celebration</p>
-                      <p className="text-[11px] text-white/50 leading-relaxed">Join us at the clubhouse for fireworks and dinner.</p>
+                      <p className="text-sm font-bold mb-0.5">Diwali Night</p>
+                      <p className="text-[11px] text-white/50 leading-relaxed">Clubhouse • 7 PM onwards.</p>
                     </div>
                  </div>
               </div>
