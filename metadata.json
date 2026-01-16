@@ -1,0 +1,7 @@
+{
+  "name": "SmartSociety Connect",
+  "description": "A comprehensive community management platform for residents, administrators, and security guards featuring visitor tracking, bill payments, and maintenance management.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
