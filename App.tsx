@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { UserRole } from './types';
-import SplashScreen from './pages/SplashScreen';
-import LoginPage from './pages/LoginPage';
-import ResidentDashboard from './pages/ResidentDashboard';
-import AdminDashboard from './pages/AdminDashboard';
-import GuardDashboard from './pages/GuardDashboard';
+import { UserRole } from './types.ts';
+import SplashScreen from './pages/SplashScreen.tsx';
+import LoginPage from './pages/LoginPage.tsx';
+import ResidentDashboard from './pages/ResidentDashboard.tsx';
+import AdminDashboard from './pages/AdminDashboard.tsx';
+import GuardDashboard from './pages/GuardDashboard.tsx';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,6 @@ const App: React.FC = () => {
   const [userRole, setUserRole] = useState<UserRole | null>(null);
 
   useEffect(() => {
-    // Simulate loading splash screen
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);

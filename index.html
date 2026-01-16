@@ -37,6 +37,11 @@
             100% { transform: translateY(0px); }
         }
         .animate-float { animation: float 3s ease-in-out infinite; }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee { animation: marquee 20s linear infinite; }
     </style>
 <script type="importmap">
 {
@@ -51,5 +56,6 @@
 </head>
 <body class="bg-gray-50 text-slate-900 selection:bg-accent/30 overflow-x-hidden">
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

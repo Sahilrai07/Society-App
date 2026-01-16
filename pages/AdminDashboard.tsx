@@ -1,17 +1,17 @@
 
 import React, { useState } from 'react';
-import AdminHome from './admin/AdminHome';
-import AdminMembers from './admin/AdminMembers';
-import AdminFinance from './admin/AdminFinance';
-import AdminNotices from './admin/AdminNotices';
-import AdminStaff from './admin/AdminStaff';
-import AdminComplaints from './admin/AdminComplaints';
-import AdminFacilities from './admin/AdminFacilities';
-import AdminAnalytics from './admin/AdminAnalytics';
-import AdminInventory from './admin/AdminInventory';
-import AdminCommittee from './admin/AdminCommittee';
-import AdminVendors from './admin/AdminVendors';
-import AdminParking from './admin/AdminParking';
+import AdminHome from './admin/AdminHome.tsx';
+import AdminMembers from './admin/AdminMembers.tsx';
+import AdminFinance from './admin/AdminFinance.tsx';
+import AdminNotices from './admin/AdminNotices.tsx';
+import AdminStaff from './admin/AdminStaff.tsx';
+import AdminComplaints from './admin/AdminComplaints.tsx';
+import AdminFacilities from './admin/AdminFacilities.tsx';
+import AdminAnalytics from './admin/AdminAnalytics.tsx';
+import AdminInventory from './admin/AdminInventory.tsx';
+import AdminCommittee from './admin/AdminCommittee.tsx';
+import AdminVendors from './admin/AdminVendors.tsx';
+import AdminParking from './admin/AdminParking.tsx';
 
 interface AdminDashboardProps {
   onLogout: () => void;

@@ -1,24 +1,24 @@
 
 import React, { useState } from 'react';
-import BottomNav from '../components/BottomNav';
-import ResidentHome from './resident/ResidentHome';
-import ResidentBills from './resident/ResidentBills';
-import ResidentComplaints from './resident/ResidentComplaints';
-import ResidentAmenities from './resident/ResidentAmenities';
-import ResidentProfile from './resident/ResidentProfile';
-import ResidentVisitors from './resident/ResidentVisitors';
-import ResidentMarketplace from './resident/ResidentMarketplace';
-import ResidentVehicles from './resident/ResidentVehicles';
-import ResidentHelpdesk from './resident/ResidentHelpdesk';
-import ResidentEvents from './resident/ResidentEvents';
-import ResidentPolls from './resident/ResidentPolls';
-import ResidentDomesticHelp from './resident/ResidentDomesticHelp';
-import ResidentDocuments from './resident/ResidentDocuments';
-import ResidentEmergency from './resident/ResidentEmergency';
-import ResidentSubscriptions from './resident/ResidentSubscriptions';
-import ResidentGallery from './resident/ResidentGallery';
-import ResidentFeed from './resident/ResidentFeed';
-import ResidentPets from './resident/ResidentPets';
+import BottomNav from '../components/BottomNav.tsx';
+import ResidentHome from './resident/ResidentHome.tsx';
+import ResidentBills from './resident/ResidentBills.tsx';
+import ResidentComplaints from './resident/ResidentComplaints.tsx';
+import ResidentAmenities from './resident/ResidentAmenities.tsx';
+import ResidentProfile from './resident/ResidentProfile.tsx';
+import ResidentVisitors from './resident/ResidentVisitors.tsx';
+import ResidentMarketplace from './resident/ResidentMarketplace.tsx';
+import ResidentVehicles from './resident/ResidentVehicles.tsx';
+import ResidentHelpdesk from './resident/ResidentHelpdesk.tsx';
+import ResidentEvents from './resident/ResidentEvents.tsx';
+import ResidentPolls from './resident/ResidentPolls.tsx';
+import ResidentDomesticHelp from './resident/ResidentDomesticHelp.tsx';
+import ResidentDocuments from './resident/ResidentDocuments.tsx';
+import ResidentEmergency from './resident/ResidentEmergency.tsx';
+import ResidentSubscriptions from './resident/ResidentSubscriptions.tsx';
+import ResidentGallery from './resident/ResidentGallery.tsx';
+import ResidentFeed from './resident/ResidentFeed.tsx';
+import ResidentPets from './resident/ResidentPets.tsx';
 
 const ResidentDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
   const [viewStack, setViewStack] = useState<string[]>(['home']);

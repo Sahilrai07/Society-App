@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import GuardHome from './guard/GuardHome';
-import GuardNewEntry from './guard/GuardNewEntry';
-import GuardSOS from './guard/GuardSOS';
-import GuardRoster from './guard/GuardRoster';
-import GuardCourier from './guard/GuardCourier';
-import GuardPatrol from './guard/GuardPatrol';
-import GuardParking from './guard/GuardParking';
+import GuardHome from './guard/GuardHome.tsx';
+import GuardNewEntry from './guard/GuardNewEntry.tsx';
+import GuardSOS from './guard/GuardSOS.tsx';
+import GuardRoster from './guard/GuardRoster.tsx';
+import GuardCourier from './guard/GuardCourier.tsx';
+import GuardPatrol from './guard/GuardPatrol.tsx';
+import GuardParking from './guard/GuardParking.tsx';
 
 const GuardDashboard: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
   const [viewStack, setViewStack] = useState<string[]>(['home']);
