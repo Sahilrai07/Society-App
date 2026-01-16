@@ -4,6 +4,7 @@ import AdminHome from './admin/AdminHome';
 import AdminMembers from './admin/AdminMembers';
 import AdminFinance from './admin/AdminFinance';
 import AdminNotices from './admin/AdminNotices';
+import AdminStaff from './admin/AdminStaff';
 
 interface AdminDashboardProps {
   onLogout: () => void;
@@ -22,6 +23,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
         return <AdminFinance />;
       case 'notices':
         return <AdminNotices />;
+      case 'staff':
+        return <AdminStaff onBack={() => setActiveTab('home')} />;
       default:
         return <AdminHome setView={setActiveTab} onLogout={onLogout} />;
     }

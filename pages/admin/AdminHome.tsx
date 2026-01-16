@@ -96,7 +96,7 @@ const AdminHome: React.FC<AdminHomeProps> = ({ setView, onLogout }) => {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <QuickActionButton label="Post Notice" icon="campaign" color="text-purple-600 bg-purple-50" onClick={() => setView('notices')} />
-            <QuickActionButton label="Manage Staff" icon="engineering" color="text-blue-600 bg-blue-50" />
+            <QuickActionButton label="Manage Staff" icon="engineering" color="text-blue-600 bg-blue-50" onClick={() => setView('staff')} />
             <QuickActionButton label="Visitor Policy" icon="policy" color="text-orange-600 bg-orange-50" />
             <QuickActionButton label="Facility Booking" icon="event_available" color="text-emerald-600 bg-emerald-50" />
           </div>
