@@ -30,28 +30,13 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
             </button>
           </div>
         </div>
-        <div className="mt-5 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[11px] font-bold opacity-80 bg-white/10 px-3 py-1.5 rounded-xl">
-            <span className="material-symbols-outlined text-sm">apartment</span>
-            <span>Galaxy Heights Society</span>
-          </div>
-          <div className="flex -space-x-2">
-            {[1, 2, 3].map(i => (
-              <div key={i} className="size-6 rounded-full border-2 border-[#1f3a60] bg-slate-400 overflow-hidden">
-                <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="avatar" />
-              </div>
-            ))}
-            <div className="size-6 rounded-full border-2 border-[#1f3a60] bg-accent flex items-center justify-center text-[10px] font-bold">+2</div>
-          </div>
-        </div>
       </header>
 
       <div className="p-5 space-y-8">
-        {/* Quick Actions Grid */}
+        {/* Main Actions Grid */}
         <section>
           <div className="flex justify-between items-end mb-4 px-1">
             <h2 className="text-lg font-black text-slate-900 tracking-tight">Daily Essentials</h2>
-            <p className="text-[10px] font-black text-accent uppercase tracking-widest">See More</p>
           </div>
           <div className="grid grid-cols-4 gap-4">
             <IconAction icon="groups" label="Visitors" color="bg-blue-50 text-blue-600" onClick={() => setView('visitors')} />
@@ -61,7 +46,25 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
           </div>
         </section>
 
-        {/* Dynamic Card */}
+        {/* Feature Highlights */}
+        <div className="grid grid-cols-2 gap-4">
+            <FeatureCard 
+              title="Community Polls" 
+              desc="Vote on society decisions"
+              icon="ballot" 
+              color="bg-amber-500"
+              onClick={() => setView('polls')}
+            />
+            <FeatureCard 
+              title="Society Events" 
+              desc="Diwali Night & more"
+              icon="celebration" 
+              color="bg-rose-500"
+              onClick={() => setView('events')}
+            />
+        </div>
+
+        {/* Bills Banner */}
         <section className="relative h-44 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/20 group cursor-pointer" onClick={() => setView('bills')}>
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
@@ -71,18 +74,15 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
             <div>
               <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest mb-2 inline-block">Finance</span>
               <h3 className="text-2xl font-black leading-tight">Monthly Maintenance</h3>
-              <p className="text-white/70 text-sm font-bold mt-1">Due: 30 Oct, 2024</p>
             </div>
             <div className="flex justify-between items-center">
                <p className="text-3xl font-black tracking-tight">₹3,500</p>
-               <button className="bg-white text-[#1f3a60] px-6 py-2.5 rounded-2xl text-xs font-black shadow-lg active:scale-95 transition-all">
-                 PAY NOW
-               </button>
+               <button className="bg-white text-[#1f3a60] px-6 py-2.5 rounded-2xl text-xs font-black shadow-lg">PAY NOW</button>
             </div>
           </div>
         </section>
 
-        {/* Feature Grid */}
+        {/* Services Grid */}
         <section>
           <div className="flex justify-between items-center mb-4 px-1">
             <h2 className="text-lg font-black text-slate-900 tracking-tight">Society Services</h2>
@@ -104,37 +104,6 @@ const ResidentHome: React.FC<ResidentHomeProps> = ({ setView }) => {
             />
           </div>
         </section>
-
-        {/* Notice Scroll */}
-        <section className="bg-slate-900 rounded-[2.5rem] p-7 text-white relative overflow-hidden">
-           <div className="absolute -right-10 -top-10 size-40 bg-accent/20 blur-3xl rounded-full" />
-           <div className="relative z-10">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-black">Latest Notices</h2>
-                <button className="text-[10px] font-black text-accent uppercase tracking-widest">Archives</button>
-              </div>
-              <div className="space-y-4">
-                 <div className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
-                    <div className="size-10 rounded-xl bg-accent/20 flex items-center justify-center text-accent shrink-0">
-                      <span className="material-symbols-outlined">water_drop</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold mb-0.5">Water Maintenance</p>
-                      <p className="text-[11px] text-white/50 leading-relaxed">Affected from 10 AM to 3 PM tomorrow.</p>
-                    </div>
-                 </div>
-                 <div className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5">
-                    <div className="size-10 rounded-xl bg-warning/20 flex items-center justify-center text-warning shrink-0">
-                      <span className="material-symbols-outlined">festival</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold mb-0.5">Diwali Night</p>
-                      <p className="text-[11px] text-white/50 leading-relaxed">Clubhouse • 7 PM onwards.</p>
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </section>
       </div>
     </div>
   );
@@ -146,6 +115,19 @@ const IconAction = ({ icon, label, color, onClick }: any) => (
       <span className="material-symbols-outlined text-[28px]">{icon}</span>
     </div>
     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{label}</span>
+  </button>
+);
+
+const FeatureCard = ({ title, desc, icon, color, onClick }: any) => (
+  <button onClick={onClick} className={`${color} p-5 rounded-[2rem] text-white text-left flex flex-col justify-between h-36 shadow-lg active:scale-95 transition-all relative overflow-hidden`}>
+    <span className="material-symbols-outlined absolute -right-4 -bottom-4 text-7xl opacity-20">{icon}</span>
+    <div className="size-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center">
+      <span className="material-symbols-outlined">{icon}</span>
+    </div>
+    <div>
+      <h4 className="font-black text-base leading-tight">{title}</h4>
+      <p className="text-[10px] font-bold opacity-80 uppercase tracking-wider">{desc}</p>
+    </div>
   </button>
 );
 

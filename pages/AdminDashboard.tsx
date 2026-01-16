@@ -5,6 +5,8 @@ import AdminMembers from './admin/AdminMembers';
 import AdminFinance from './admin/AdminFinance';
 import AdminNotices from './admin/AdminNotices';
 import AdminStaff from './admin/AdminStaff';
+import AdminComplaints from './admin/AdminComplaints';
+import AdminFacilities from './admin/AdminFacilities';
 
 interface AdminDashboardProps {
   onLogout: () => void;
@@ -25,6 +27,10 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
         return <AdminNotices />;
       case 'staff':
         return <AdminStaff onBack={() => setActiveTab('home')} />;
+      case 'complaints':
+        return <AdminComplaints onBack={() => setActiveTab('home')} />;
+      case 'facilities':
+        return <AdminFacilities onBack={() => setActiveTab('home')} />;
       default:
         return <AdminHome setView={setActiveTab} onLogout={onLogout} />;
     }
@@ -36,7 +42,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
         {renderView()}
       </main>
 
-      {/* Bottom Nav for Admin */}
       <nav className="fixed bottom-0 w-full bg-white border-t border-slate-100 pb-safe px-4 pt-2 shadow-[0_-4px_20px_-5px_rgba(0,0,0,0.05)] z-50">
         <div className="flex justify-between items-center h-16">
           {[

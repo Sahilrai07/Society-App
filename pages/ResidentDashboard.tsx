@@ -10,6 +10,8 @@ import ResidentVisitors from './resident/ResidentVisitors';
 import ResidentMarketplace from './resident/ResidentMarketplace';
 import ResidentVehicles from './resident/ResidentVehicles';
 import ResidentHelpdesk from './resident/ResidentHelpdesk';
+import ResidentEvents from './resident/ResidentEvents';
+import ResidentPolls from './resident/ResidentPolls';
 
 interface ResidentDashboardProps {
   onLogout: () => void;
@@ -38,6 +40,10 @@ const ResidentDashboard: React.FC<ResidentDashboardProps> = ({ onLogout }) => {
         return <ResidentVehicles onBack={() => setActiveTab('home')} />;
       case 'helpdesk':
         return <ResidentHelpdesk onBack={() => setActiveTab('home')} />;
+      case 'events':
+        return <ResidentEvents onBack={() => setActiveTab('home')} />;
+      case 'polls':
+        return <ResidentPolls onBack={() => setActiveTab('home')} />;
       default:
         return <ResidentHome setView={setActiveTab} />;
     }
